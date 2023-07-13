@@ -1,0 +1,33 @@
+<div>
+  <nav class="navbar navbar-expand-sm navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href routerLink="./" >Twoje Hity - twórz własną listę!</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+        <ul class="navbar-nav me-auto mb-2 mb-sm-0 ">
+          <a class="nav-link" href routerLink="./all" *ngIf="authInfo.isAuthenticated">Przeglądaj listę hitów</a>
+          <a class="nav-link" href routerLink="./your-favorite" *ngIf="authInfo.isAuthenticated">Twoje ulubione</a>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item" *ngIf="authInfo.isAuthenticated">
+            <button type="button" class="btn btn-warning btn-sm" href routerLink="./add-new-song">➕ Dodaj nową</button>
+          </li>
+          <li class="nav-item" *ngIf="authInfo.isAuthenticated">
+            <button type="button" class="btn btn-success btn-sm" (click)="logout()">Wyloguj</button>
+          </li>
+          <li class="nav-item" *ngIf="!authInfo.isAuthenticated">
+            <button type="button" class="btn btn-warning btn-sm" href routerLink="./login">Zaloguj się</button>
+          </li>
+          <li class="nav-item" *ngIf="!authInfo.isAuthenticated">
+            <button type="button" class="btn btn-info btn-sm" href routerLink="./register">Zarejestruj się</button>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+</div>

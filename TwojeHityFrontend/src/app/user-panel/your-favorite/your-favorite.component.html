@@ -1,0 +1,23 @@
+<div class="grid-wrapper">
+    <kendo-grid [kendoGridBinding]="gridViewSearch" [data]="gridView" [height]="675" [loading]="loadingPanelVisible"
+        [pageSize]="pageSize" [skip]="skip" [pageable]="true" [sortable]="true" [filterable]="true"
+        [groupable]="groupable" [resizable]="true" (edit)="editHandler($event)" (remove)="removeHandler($event)">
+        <ng-template kendoGridToolbarTemplate>
+            <!--  <button kendoGridAddCommand>Dodaj</button> -->
+            <input placeholder="Szukaj..." kendoTextBox (input)="onFilter($event)" />
+        </ng-template>
+        <kendo-grid-column field="rank" title="Ranking" [hidden]="false" [width]="120"></kendo-grid-column>
+        <kendo-grid-column field="title" title="Tytuł"></kendo-grid-column>
+        <kendo-grid-column field="artist" title="Wykonawca"></kendo-grid-column>
+        <kendo-grid-column field="album" title="Album"></kendo-grid-column>
+        <kendo-grid-column [filterable]="true" field="year" filter="numeric" title="Rok">
+
+        </kendo-grid-column>
+        <kendo-grid-command-column title="Akcje" [width]="100">
+            <ng-template kendoGridCellTemplate let-isNew="isNew">
+                <!-- <button kendoGridEditCommand [primary]="true">Edytuj</button> -->
+                <button kendoGridRemoveCommand>Usuń</button>
+            </ng-template>
+        </kendo-grid-command-column>
+    </kendo-grid>
+</div>

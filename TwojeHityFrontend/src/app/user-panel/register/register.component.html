@@ -1,0 +1,56 @@
+<router-outlet *ngIf="!isActive('/register')"></router-outlet>
+<div class="absolute" *ngIf="isActive('/register')">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-center">Zarejestruj się!</h2>
+                </div>
+                <div class="card-body">
+                    <form class="form" [formGroup]="formGroup" #form>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group m-1">
+                                    <label>* Login</label>
+                                    <mat-form-field class="full-width">
+                                        <input matInput formControlName="login" type="login" class="form-control">
+                                        <mat-error>Pole jest wymagane (min. 5 znaków)</mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <br>
+                                <div class="form-group m-1">
+                                    <label>* Hasło</label>
+                                    <mat-form-field class="full-width">
+                                        <input matInput formControlName="password" type="password" class="form-control">
+                                        <mat-error>Hasło musi mieć minimum <strong>6 znaków</strong></mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="form-group m-1">
+                                    <label>* Powtórz Hasło</label>
+                                    <mat-form-field class="full-width">
+                                        <mat-label></mat-label>
+                                        <input matInput formControlName="confirmPassword" type="password"
+                                            class="form-control">
+                                        <mat-error *ngIf="formGroup.get('confirmPassword')?.hasError('mustMatch')">Hasła
+                                            nie pasują do siebie</mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <p class="form-text text-muted text-center">Masz już konto? <a
+                                            routerLink="../login">Zaloguj się!</a></p>
+                                </div>
+                                <div class="d-flex justify-content-end">
+                                    <button href class="btn btn-success m-1 text-right"
+                                        (click)="registerUser()">Zarejestruj</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>

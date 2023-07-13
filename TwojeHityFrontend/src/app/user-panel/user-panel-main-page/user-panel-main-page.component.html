@@ -1,0 +1,31 @@
+<div class="container-md">
+    <div *ngIf="!authInfo.isAuthenticated">
+        <h1>Witaj w serwisie! Aby kontynuować musisz się zalogować</h1>
+    </div>
+    <div *ngIf="authInfo.isAuthenticated">
+        <h1>Witaj w serwisie!</h1>
+    </div>
+    <div class="row">
+        <div class="col-md"></div>
+        <div class="col-md-4">
+            <div>
+                <div class="image-wrapper1">
+                    <img src="..\..\assets\images\nuty.jpg" id="im" style="width: 426px; height: 300px;">
+                </div>
+                <div id="text">
+                    Witaj na naszej stronie internetowej, gdzie możesz odkrywać, dodawać i zarządzać swoją kolekcją
+                    piosenek! Nasza platforma umożliwia użytkownikom odkrywanie nowej muzyki, dodawanie swoich
+                    ulubionych utworów oraz tworzenie własnych list ulubionych piosenek</div>
+            </div>
+        </div>
+        <div class="col-md-4" id="margin">
+            <div id="text2">
+                Nie trać czasu na przeszukiwanie różnych serwisów muzycznych, nasza strona zapewnia Ci wszystko w jednym
+                miejscu.</div>
+            <div class="image-wrapper2"><img src="..\..\assets\images\sluchawki.jpg" id="im"
+                    style="width: 360px; height: 360px;">
+            </div>
+        </div>
+        <div class="col-md"></div>
+    </div>
+</div>
